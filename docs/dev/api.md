@@ -1,7 +1,7 @@
 # API documentation
 Several tasks of CodiMD can be automated through HTTP requests.
 The available endpoints for this api are described in this document.
-For code-autogeneration there is an OpenAPIv3-compatible description available [here](openapi.yml).
+For code-autogeneration there is an OpenAPIv3-compatible description available [here](/dev/openapi.yml ':ignore').
 
 ## Notes
 These endpoints create notes, return information about them or export them.  

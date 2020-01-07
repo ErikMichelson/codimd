@@ -14,7 +14,7 @@ It is inspired by Hackpad, Etherpad and similar collaborative editors. This
 project originated with the team at [HackMD](https://hackmd.io) and now forked
 into its own organisation. [A longer writeup can be read in the history doc](docs/history.md).
 
-[![CodiMD 1.3.2 with its feature demonstration page open](docs/images/CodiMD-1.3.2-features.png)][codimd-demo-features]
+[![CodiMD 1.3.2 with its feature demonstration page open](docs/_images/text-features.png)][codimd-demo-features]
 
 
 ## Community and Contributions

@@ -12,7 +12,7 @@ commercial version of HackMD.
 The AGPLv3-version was developed and released by the community, this was for a
 while referred to as "HackMD community edition".
 
-*For more on the splitting of the projects, please refer to [A note to our community (2017-10-11)](https://hackmd.io/c/community-news/https%3A%2F%2Fhackmd.io%2Fs%2Fr1_4j9_hZ).*
+*For more on the splitting of the projects, please refer to [A note to our community (2017-10-11)](https://hackmd.io/c/community-news/https%3A%2F%2Fhackmd.io%2Fs%2FBk-zpEC9-).*
 
 
 ## HackMD CE became CodiMD
