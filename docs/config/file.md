@@ -234,10 +234,10 @@ By default CodiMD uses paths below its root directory for storage of temporary f
 | `documentMaxLength` | `100000` | Maximum length of documents stored in CodiMD. Caution: Too high limits open your CodiMD instance up to easier DoS attacks. |
 | `heartbeatInterval` | `5000` | Time interval in milliseconds used for heartbeats that are send out by the client to check that the websocket connection is still conencted. |
 | `heartbeatTimeout` | `10000` | Time in milliseconds that is allowed to pass without heartbeat before the websocket connection is considered disconnected. |
-| `linkifyHeaderStyle` | `keep-case`, `lower-case` or `gfm` | 'Default linking style for headers used by the markdown rendering engine for notes. For more details see [here](/config/linkify.md). |
+| `linkifyHeaderStyle` | `keep-case`, `lower-case` or `gfm` | Default linking style for headers used by the markdown rendering engine for notes. For more details see [here](/config/linkify.md). |
 | `sourceURL` | `https://github.com/codimd/server/tree/<current commit>` | Provides the link to the source code of CodiMD on the entry page. (Please, make sure you change this when you run a modified version!) |
 | `staticCacheTime` | `86400` | Time in seconds that static assets delivered from CodiMD are cached on the client. |
-| `tooBusyLag` | `70` | Maximum lag (in milliseconds) allowed in the NodeJS event loop, before the CodiMD tells new connections, that the server is too busy at the moment, and handles existing requests first. |
+| `tooBusyLag` | `70` | Maximum lag (in milliseconds) allowed in the NodeJS event loop, before CodiMD tells new connections, that the server is too busy at the moment, and handles existing requests first. |
 
 
 ## Authentication providers
@@ -293,6 +293,13 @@ To enable Google login, you need to register your CodiMD instance at the [Google
 | `google` | `{clientID: ..., clientSecret: ...}` | An object containing your client ID and client secret. |
 
 
+### OpenID Login
+To enable OpenID login, you need to set the following property to `true`.
+
+| variables | example values | description |
+| --------- | ------ | ----------- |
+| `openID` | `true` or `false` | Enables or disables login with OpenID. |
+
 ### GitLab Login
 
 | variables | example values | description |
@@ -300,24 +307,18 @@ To enable Google login, you need to register your CodiMD instance at the [Google
 | `gitlab` | `{baseURL: ..., scope: ..., version: ..., clientID: ..., clientSecret: ...}` | An object containing your GitLab application data. Refer to the [GitLab guide](guides/auth/gitlab-self-hosted.md) for more details! |
 
 
-
 ### LDAP Login
 
 | variables | example values | description |
 | --------- | ------ | ----------- |
-| `ldap` | `{providerName: ..., url: ..., bindDn: ..., bindCredentials: ..., searchBase: ..., searchFilter: ..., searchAttributes: ..., usernameField: ..., useridField: ..., tlsca: ...}` | An object detailing the LDAP connection. Refer to the [LDAP-AD guide](guides/auth/ldap-AD.md) for more details! |
-
-### Mattermost Login
-
-| variables | example values | description |
-| --------- | ------ | ----------- |
-| `mattermost` | `{baseURL: ..., clientID: ..., clientSecret: ...}` | An object containing the base URL of your Mattermost application data. Refer to the [Mattermost guide](guides/auth/mattermost-self-hosted.md) for more details! |
+| `ldap` | `{providerName: ..., url: ..., bindDn: ..., bindCredentials: ..., searchBase: ..., searchFilter: ..., searchAttributes: ..., usernameField: ..., useridField: ..., tlsca: ..., tlsOptions: {...}}` | An object detailing the LDAP connection. Refer to the [LDAP-AD guide](guides/auth/ldap-AD.md) for more details! |
 
 ### OAuth2 Login
 
 | variables | example values | description |
 | --------- | ------ | ----------- |
-| `oauth2` | `{baseURL: ..., userProfileURL: ..., userProfileUsernameAttr: ..., userProfileDisplayNameAttr: ..., userProfileEmailAttr: ..., tokenURL: ..., authorizationURL: ..., clientID: ..., clientSecret: ...}` | An object detailing your OAuth2 provider. Refer to the [Mattermost](guides/auth/mattermost-self-hosted.md) or [Nextcloud](guides/auth/nextcloud.md) examples for more details!|
+| `oauth2` | `{providerName: ..., tokenURL: ..., authorizationURL: ..., clientID: ..., clientSecret: ...}` | An object detailing your OAuth2 provider. Refer to the [Mattermost](guides/auth/mattermost-self-hosted.md) or [Nextcloud](guides/auth/nextcloud.md) examples for more details! |
+
 
 ### SAML Login
 
@@ -327,8 +328,4 @@ To enable Google login, you need to register your CodiMD instance at the [Google
 
 ---
 
-The config file is processed
-in [`lib/config/index.js`](../lib/config/index.js) - so this is the first
-place to look if anything is missing not obvious from this document. The
-default values are defined in [`lib/config/default.js`](../lib/config/default.js),
-in case you wonder if you even need to override it.
+The config file is processed by convict. The schema is defined in [`lib/config/convict.js`](https://github.com/codimd/server/blob/master/lib/config/convict.js). Take a look there for the default values or things that are unclear from this documentation.
