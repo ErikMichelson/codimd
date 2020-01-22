@@ -1,35 +1,31 @@
-Authentication guide - GitHub
-===
+# Integrate GitHub authentication
 
-**Note:** *This guide was written before the renaming. Just replace `HackMD` with `CodiMD` in your mind :smile: thanks!*
+1. Sign-in or sign-up for a GitHub account.
+2. Navigate to OAuth app settings in your GitHub account [here](https://github.com/settings/developers).
+3. Click on the **New OAuth App** button, to create a new OAuth App.  
+   ![Screenshot of OAuth app page](../../_images/auth/github_create-oauth-app.png)
+4. Fill out the new OAuth application registration form, and click **Register Application**.  
+   ![register-oauth-application-form](../../_images/auth/github_register-oauth-app.png)
 
-1. Sign-in or sign-up for a GitHub account
-2. Navigate to developer settings in your GitHub account [here](https://github.com/settings/developers) and select the "OAuth Apps" tab
-3. Click on the **New OAuth App** button, to create a new OAuth App:  
-   ![create-oauth-app](../../images/auth/create-oauth-app.png)
+   **Note:** *The callback URL is `<your-codimd-url>/auth/github/callback`*
 
-4. Fill out the new OAuth application registration form, and click **Register Application**  
-   ![register-oauth-application-form](../../images/auth/register-oauth-application-form.png)
+5. After successfully registering the application, you'll receive the client ID and client secret for the application.  
+   ![application-page](../../_images/auth/github_application-page.png)
 
-   **Note:** *The callback URL is <your-codimd-url>/auth/github/callback*
-
-5. After successfully registering the application, you'll receive the Client ID and Client Secret for the application  
-   ![application-page](../../images/auth/application-page.png)
-
-6. Add the Client ID and Client Secret to your config.json file or pass them as environment variables
+6. Add the client ID and client secret to your config.json file **or** pass them as environment variables.
     * `config.json`:
-      ```js
+      ```json
       {
         "production": {
           "github": {
-              "clientID": "3747d30eaccXXXXXXXXX",
-              "clientSecret": "2a8e682948eee0c580XXXXXXXXXXXXXXXXXXXXXX"
+              "clientID": "38f9348e79a2b7b0d01f6",
+              "clientSecret": "1f6615285eb7fba09c993365379895cb6cb4d37d"
           }
         }
       }
       ```
     * environment variables:
       ```sh
-      CMD_GITHUB_CLIENTID=3747d30eaccXXXXXXXXX
-      CMD_GITHUB_CLIENTSECRET=2a8e682948eee0c580XXXXXXXXXXXXXXXXXXXXXX
+      CMD_GITHUB_CLIENTID=38f9348e79a2b7b0d01f6
+      CMD_GITHUB_CLIENTSECRET=1f6615285eb7fba09c993365379895cb6cb4d37d
       ````

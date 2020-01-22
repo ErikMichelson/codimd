@@ -1,29 +1,21 @@
-Authentication guide - Twitter
-===
+# Integrate Twitter authentication
 
-**Note:** *This guide was written before the renaming. Just replace `HackMD` with `CodiMD` in your mind :smile: thanks!*
+*Note: You might need to register your account as developer account before creating an app. You will see a prompt with details about that at your first visit in the Twitter developer tools.*
 
-1. Sign-in or sign-up for a Twitter account
-2. Go to the Twitter Application management page [here](https://apps.twitter.com/)
-3. Click on the **Create New App** button to create a new Twitter app:  
-   ![create-twitter-app](../../images/auth/create-twitter-app.png)
+1. Sign-in or sign-up for a Twitter account.
+2. Go to the Twitter Application management page [here](https://developer.twitter.com/apps).
+3. Click on the **Create an app** button to create a new Twitter app:  
+   ![create-twitter-app](../../_images/auth/twitter_create-app.png)
 
-4. Fill out the create application form, check the developer agreement box, and click **Create Your Twitter Application**  
-   ![register-twitter-application](../../images/auth/register-twitter-application.png)
+4. Fill out the create application form and click **Create**  
+   ![register-twitter-application](../../_images/auth/twitter_register-application.png)
 
-   *Note: you may have to register your phone number with Twitter to create a Twitter application*
+5. After you receive confirmation that the Twitter application was created, click **Keys and tokens** to obtain your consumer API key and secret:  
+   ![twitter-app-keys](../../_images/auth/twitter_app-keys.png)
 
-   To do this Click your profile icon --> Settings and privacy --> Mobile  --> Select Country/region --> Enter phone number --> Click Continue
-
-5. After you receive confirmation that the Twitter application was created, click **Keys and Access Tokens**  
-   ![twitter-app-confirmation](../../images/auth/twitter-app-confirmation.png)
-
-6. Obtain your Twitter Consumer Key and Consumer Secret  
-   ![twitter-app-keys](../../images/auth/twitter-app-keys.png)
-
-7.  Add your Consumer Key and Consumer Secret to your `config.json` file or pass them as environment variables:
+6.  Add your Consumer Key and Consumer Secret to your `config.json` file **or** pass them as environment variables:
     * `config.json`:
-      ```javascript
+      ```json
       {
         "production": {
           "twitter": {

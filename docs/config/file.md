@@ -3,7 +3,8 @@
 The config file is named `config.json` and is located in the root directory of CodiMD.  
 If the config file does not exist yet in your installation, run the setup script (`bin/setup`) or copy the file `config.json.example` to `config.json`.
 
-The configuration file must be a valid JSON file. Paths are specified as absolute ones or relative to CodiMD's root directory.
+The configuration file must be a valid JSON file. Paths are specified as absolute ones or relative to CodiMD's root directory.  
+In the config file there are three objects that represent the config for the respective environment ("production", "development" or "test"). You need to add the config properties as child elements to the environment object.
 
 ## Node.JS runtime configuration
 
@@ -42,10 +43,10 @@ CodiMD is able to provide a secure HTTPS interface. Therefore you need to config
 The TLS-configuration is an own object in the config file. So your config will look like this:
 ```json
 ...
-allowOrigin: ['localhost'],
-tls: {
-    enable: true,
-    keyPath: '/etc/ssl/codimd/privkey.pem',
+allowOrigin: ["localhost"],
+"tls": {
+    "enable": true,
+    "keyPath": "/etc/ssl/codimd/privkey.pem",
     ...
 },
 ...
@@ -65,9 +66,9 @@ If you have enabled TLS-encryption for CodiMD, you maybe also want to enable [_H
 Like the TLS-configuration, the HSTS-configuration is an own object in the config file too.
 ```json
 ...
-hsts: {
-    enable: true,
-    maxAgeSeconds: 86400 * 365,
+"hsts": {
+    "enable": true,
+    "maxAgeSeconds": 31536000,
     ...
 }
 ```
@@ -84,18 +85,18 @@ hsts: {
 CodiMD supports the Content-security-policy standard to restrict the origins of external content.  
 The CSP-configuration is an own object in the config file.
 ```json
-csp: {
-    enable: true,
-    directives: {
-        defaultSrc: ['\'self\''],
-        scriptSrc: ['js.example.com'],
-        imgSrc: ['*'],
-        styleSrc: ['css.example.com'],
-        fontSrc: ['font.example.com'],
-        objectSrc: ['*'],
-        mediaSrc: ['*'],
-        childSrc: ['*'],
-        connectSrc: ['*']
+"csp": {
+    "enable": true,
+    "directives": {
+        "defaultSrc": ["'self'"],
+        "scriptSrc": ["js.example.com"],
+        "imgSrc": ["*"],
+        "styleSrc": ["css.example.com"],
+        "fontSrc": ["font.example.com"],
+        "objectSrc": ["*"],
+        "mediaSrc": ["*"],
+        "childSrc": ["*"],
+        "connectSrc": ["*"]
     },
     ...
 }
@@ -151,12 +152,12 @@ If `imgur` is selected as `imageUploadType`, the following properties need to be
 If `s3` is selected as `imageUploadType`, the following properties need to be set. They are an own object in the config file. **Additionally the `s3bucket` property needs to be set.** For more information read the [guide](/guides/storage/s3.md).
 ```json
 ...
-s3: {
-    accessKeyId: '',
-    secretAccessKey: '',
-    region: ''
+"s3": {
+    "accessKeyId": "",
+    "secretAccessKey": "",
+    "region": ""
 },
-s3bucket: '',
+"s3bucket": "",
 ...
 ```
 
@@ -171,11 +172,11 @@ s3bucket: '',
 If `minio` is selected as `imageUploadType`, the following properties need to be set. They are an own object in the config file. **In addition you also have to set the `s3bucket` property (even though you use MinIO instead of s3!).** For more information read the [guide](/guides/storage/minio.md).
 ```json
 ...
-minio: {
-    accessKey: '',
+"minio": {
+    "accessKey": "",
     ...
 },
-s3bucket: '',
+"s3bucket": "",
 ...
 ```
 
@@ -192,9 +193,9 @@ s3bucket: '',
 If `azure` is selected as `imageUploadType`, the following properties need to be set. They are an own object in the config file.
 ```json
 ...
-azure: {
-    connectionString: '',
-    container: '',
+"azure": {
+    "connectionString": "",
+    "container": "",
 },
 ...
 ```
